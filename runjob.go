@@ -25,12 +25,12 @@ type Func func()
 
 func (r Func) Run() { r() }
 
-func Schedule(spec string, job cron.Job) error {
+func Schedule(spec string, job cron.Job, n ...string) error {
 	sched, err := cron.ParseStandard(spec)
 	if err != nil {
 		return err
 	}
-	MainCron.Schedule(sched, New(job))
+	MainCron.Schedule(sched, New(job, ...n))
 	return nil
 }
 
@@ -43,8 +43,8 @@ func Every(duration time.Duration, job cron.Job) {
 }
 
 // Run the given job right now.
-func Now(job cron.Job) {
-	go New(job).Run()
+func Now(job cron.Job, n ...string) {
+	go New(job, n).Run()
 }
 
 // Run the given job once, after the given delay.
