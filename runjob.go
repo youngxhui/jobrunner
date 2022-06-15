@@ -30,21 +30,21 @@ func Schedule(spec string, job cron.Job, n ...string) error {
 	if err != nil {
 		return err
 	}
-	MainCron.Schedule(sched, New(job, ...n))
+	MainCron.Schedule(sched, New(job, n...))
 	return nil
 }
 
 // Run the given job at a fixed interval.
 // The interval provided is the time between the job ending and the job being run again.
 // The time that the job takes to run is not included in the interval.
-func Every(duration time.Duration, job cron.Job) {
+func Every(duration time.Duration, job cron.Job, n ...string) {
 
-	MainCron.Schedule(cron.Every(duration), New(job))
+	MainCron.Schedule(cron.Every(duration), New(job, n...))
 }
 
 // Run the given job right now.
-func Now(job cron.Job, n ...string) {
-	go New(job, n).Run()
+func Now(job cron.Job) {
+	go New(job).Run()
 }
 
 // Run the given job once, after the given delay.

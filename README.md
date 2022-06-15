@@ -1,5 +1,7 @@
 # ![](https://raw.githubusercontent.com/bamzi/jobrunner/master/views/runclock.jpg) JobRunner
 
+[![Go](https://github.com/youngxhui/jobrunner/actions/workflows/go.yml/badge.svg)](https://github.com/youngxhui/jobrunner/actions/workflows/go.yml)
+
 JobRunner is framework for performing work asynchronously, outside of the request flow. It comes with cron to schedule and queue job functions for processing at specified time. 
 
 It includes a live monitoring of current schedule and state of active jobs that can be outputed as JSON or Html template. 
