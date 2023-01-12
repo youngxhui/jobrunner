@@ -15,7 +15,7 @@ It includes a live monitoring of current schedule and state of active jobs that 
 ```go
 package main
 
-import "github.com/bamzi/jobrunner"
+import "github.com/youngxhui/jobrunner"
 
 func main() {
     jobrunner.Start() // optional: jobrunner.Start(pool int, concurrent int) (10, 1)
